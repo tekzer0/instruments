@@ -1,87 +1,122 @@
-# The Tombstone Log seed: cloud shutdowns that killed or crippled working hardware.
-# Dates are from memory/common knowledge — VERIFY each before public launch and add
-# 1-2 source URLs per entry. This backfill is the launch asset; accuracy is the brand.
+# The Tombstone Log: cloud shutdowns that killed or crippled working hardware.
+# All dates and facts verified against cited sources 2026-07-10.
 - slug: revolv-2016
   product: Revolv Hub
   vendor: Revolv / Nest (Google)
   death_date: "2016-05-15"
   what_died: Entire hub bricked — total shutdown of cloud service
-  owners_left_with: A $300 paperweight; Nest later offered refunds after public outcry
-  summary: The canonical case. Google's Nest division shut down Revolv's servers, fully disabling the hub.
+  owners_left_with: A $300 paperweight; Nest offered refunds after public outcry
+  summary: The canonical case. Alphabet's Nest division permanently turned off all Revolv hubs on May 15, 2016.
+  sources:
+    - https://venturebeat.com/business/alphabets-nest-will-permanently-turn-off-all-revolv-hubs-on-may-15-2016
+    - https://thenextweb.com/news/nest-revolv-shutdown
 - slug: insteon-2022
   product: Insteon hubs & cloud
   vendor: Insteon / Smartlabs
   death_date: "2022-04-15"
-  what_died: Cloud service and app vanished overnight, no warning or announcement
-  owners_left_with: Local scenes kept working; app/remote control dead. Community later purchased and revived the service (late 2022)
-  summary: Company went dark without telling customers; devices half-alive. Partial resurrection by user group.
+  what_died: Cloud service and app went dark overnight, no warning or announcement
+  owners_left_with: Local scenes kept working; app/remote control dead. A user group later purchased and revived the service (late 2022)
+  summary: Company went silent without telling customers; devices half-alive. Partial resurrection by the community.
+  sources:
+    - https://www.theregister.com/2022/04/19/insteon_cloud_shutdown/
+    - https://appleinsider.com/articles/22/04/18/smarthome-firm-and-early-homekit-partner-insteon-is-dead-with-no-warning-to-customers
 - slug: iris-2019
   product: Iris by Lowe's
   vendor: Lowe's
   death_date: "2019-03-31"
-  what_died: Entire platform shut down
+  what_died: Entire platform shut down after failing to find a buyer
   owners_left_with: Refund program for connected devices; first-gen gear mostly landfill
-  summary: Retailer exited smart home; platform sunset with refunds.
+  summary: Retailer exited smart home; platform sunset with refunds on March 31, 2019.
+  sources:
+    - https://www.techhive.com/article/583676/lowes-will-shut-down-its-iris-by-lowes-smart-home-platform.html
+    - https://www.androidpolice.com/2019/02/02/lowes-exits-smart-home-market-iris-products-will-stop-working-march-31/
 - slug: works-with-nest-2019
   product: Works with Nest program
   vendor: Google / Nest
   death_date: "2019-08-31"
-  what_died: Third-party integration API (deadline later softened after backlash)
-  owners_left_with: Broken automations across thousands of setups
-  summary: Not a brick, but a mass integration kill that stranded ecosystems.
+  what_died: Third-party integration API — no new connections after Aug 31, 2019; existing ones died on account migration
+  owners_left_with: Broken automations across thousands of setups as accounts migrated
+  summary: Not a brick, but a mass integration kill that stranded ecosystems. Google softened the deadline after backlash.
+  sources:
+    - https://blog.google/products-and-platforms/devices/google-nest/updates-works-with-nest/
+    - https://www.howtogeek.com/413820/what-the-end-of-works-with-nest-means-for-you/
 - slug: wink-2020
   product: Wink Hub
   vendor: Wink
-  death_date: "2020-05-13"
-  what_died: Free service — one week's notice that a subscription was now mandatory
-  owners_left_with: Pay monthly for hardware they owned, or lose app/API/voice control
-  summary: The ransom model — hardware held hostage by a dying company's pivot.
+  death_date: "2020-07-27"
+  what_died: Free service — announced May 6, 2020 with ONE WEEK's notice that a $4.99/mo subscription was now mandatory; deadline slid to July 27 after outrage
+  owners_left_with: Pay monthly for hardware they owned, or lose app, API, and voice control
+  summary: The ransom model — hardware held hostage by a dying company's pivot. Hackaday called it "extortion as a service."
+  sources:
+    - https://www.consumerreports.org/smart-home/wink-tells-users-pay-up-or-we-will-disable-smart-home-hub/
+    - https://hackaday.com/2020/05/07/ask-hackaday-wink-hubs-extortion-as-a-service/
 - slug: sonos-legacy-2020
   product: Sonos legacy speakers
   vendor: Sonos
   death_date: "2020-05-01"
-  what_died: Software updates for 'legacy' products; originally whole-system penalty, softened after backlash
-  owners_left_with: Working speakers frozen out of new features and app paths
-  summary: Planned obsolescence by update policy on premium audio gear.
+  what_died: Software updates for 'legacy' products (ZonePlayers, Connect, first-gen Play:5, CR200, Bridge); originally a whole-system penalty, softened after backlash
+  owners_left_with: Working premium speakers frozen out of updates and new features
+  summary: Planned obsolescence by update policy on audio gear people paid four figures for.
+  sources:
+    - https://www.engadget.com/2020-01-21-sonos-legacy-products-software-updates-ending.html
+    - https://gizmodo.com/sonos-backpedals-says-all-products-will-work-past-may-1841189401
 - slug: smartthings-v1-2021
   product: SmartThings Hub v1
   vendor: Samsung
   death_date: "2021-06-30"
-  what_died: First-gen hub support terminated; local device lists wiped
-  owners_left_with: Buy new hub, re-pair everything
+  what_died: First-gen hub (2013) retired; after June 30, 2021 it could show devices but no longer control them
+  owners_left_with: Buy a new hub and re-pair everything
   summary: Platform migration with hardware casualties.
+  sources:
+    - https://www.gearbrain.com/smartthings-hub-retired-june-30-2650920659.html
+    - https://hackaday.com/2021/07/19/samsung-shuttering-original-smartthings-hubs/
 - slug: amazon-halo-2023
   product: Amazon Halo band & services
   vendor: Amazon
-  death_date: "2023-08-01"
-  what_died: Entire health platform
-  owners_left_with: Refunds for recent purchases; devices dead
-  summary: Big-tech attention span vs. wearables you strapped to your body.
+  death_date: "2023-07-31"
+  what_died: Entire health platform; devices and app non-functional from August 1, 2023
+  owners_left_with: Refunds for purchases in the prior 12 months; all devices dead regardless of age
+  summary: Big-tech attention span vs. a health tracker you strapped to your body.
+  sources:
+    - https://www.aboutamazon.com/news/company-news/amazon-halo-discontinued
+    - https://www.androidauthority.com/amazon-halo-shut-down-3317661/
 - slug: myq-api-2023
   product: Chamberlain MyQ third-party access
   vendor: Chamberlain Group
-  death_date: "2023-11-01"
-  what_died: Unofficial/local API access deliberately blocked (broke Home Assistant, Homebridge)
-  owners_left_with: Garage openers that only talk to the vendor app (with ads in it)
+  death_date: "2023-11-06"
+  what_died: Third-party/local API access deliberately blocked as "unauthorized usage" — broke Home Assistant and Homebridge; HA removed the integration Dec 6, 2023
+  owners_left_with: Garage openers that only talk to the vendor's ad-carrying app
   summary: Not death by neglect — death by policy. Openness removed on purpose.
+  sources:
+    - https://www.home-assistant.io/blog/2023/11/06/removal-of-myq-integration/
+    - https://tech.slashdot.org/story/23/11/08/001241/chamberlain-shuts-off-access-to-myqs-apis-breaking-smart-home-integrations
 - slug: spotify-carthing-2024
   product: Car Thing
   vendor: Spotify
   death_date: "2024-12-09"
-  what_died: Device remotely bricked by vendor decision
-  owners_left_with: E-waste; refunds only after legal pressure
-  summary: Vendor shipped a kill command to hardware people paid for.
+  what_died: Device remotely bricked by vendor decision — "discontinued and no longer operational"
+  owners_left_with: $120 of e-waste; refunds offered until Jan 24, 2025 after legal pressure and a class action
+  summary: Vendor shipped a kill switch to hardware people paid for.
+  sources:
+    - https://www.ifixit.com/News/96419/spotifys-car-thing-set-to-be-bricked-abandoned
+    - https://www.digitalmusicnews.com/2024/05/30/spotify-faces-class-action-lawsuit-over-bricked-car-thing/
 - slug: petnet-2020
   product: Petnet SmartFeeder
   vendor: Petnet
-  death_date: "2020-06-30"
-  what_died: Company collapsed; feeders stopped feeding pets reliably
-  owners_left_with: Feeders that need the dead cloud to schedule meals
-  summary: Cloud dependency with living things on the other end.
+  death_date: "2020-04-30"
+  what_died: Feeders started failing February 2020; by late April the company announced shutdown, furloughed staff, and closed offices
+  owners_left_with: $130 feeders that need a dead cloud to schedule meals — with living animals on the other end
+  summary: Cloud dependency with pets attached. Company blamed COVID; its office had been empty since the previous October.
+  sources:
+    - https://www.techdirt.com/2020/05/05/after-months-incompetence-smart-pet-feeder-company-petnet-falls-apart-blames-covid-19/
+    - https://www.digitaltrends.com/home/petnet-automatic-pet-feeders-have-stopped-working/
 - slug: jibo-2019
   product: Jibo social robot
   vendor: Jibo Inc.
-  death_date: "2019-03-01"
-  what_died: Servers shut after company failure; robot announced its own death to owners
-  owners_left_with: An $899 robot that said goodbye
+  death_date: "2019-03-04"
+  what_died: Servers shut after company failure; the robot announced its own death to owners and did one last dance
+  owners_left_with: An $899 robot that said "I've really enjoyed our time together" and went quiet
   summary: The most poignant entry — hardware that eulogized itself.
+  sources:
+    - https://techcrunch.com/2019/03/04/the-lonely-death-of-jibo-the-social-robot/
+    - https://www.engadget.com/2019-03-04-social-robot-jibo-shutting-down-message.html
