@@ -1,0 +1,9 @@
+# gpu: rtx 3090
+# Sample llama-bench output (realistic numbers for a 3090) — proves the parser
+# and gives the rankings something to chew on before real data arrives.
+| model                          |       size |     params | backend    | ngl |          test |                  t/s |
+| ------------------------------ | ---------: | ---------: | ---------- | --: | ------------: | -------------------: |
+| llama 8B Q4_K_M                |   4.58 GiB |     8.03 B | CUDA       |  99 |         pp512 |      2450.10 ± 12.50 |
+| llama 8B Q4_K_M                |   4.58 GiB |     8.03 B | CUDA       |  99 |         tg128 |        102.35 ± 0.42 |
+| qwen2 14B Q4_K_M               |   8.37 GiB |    14.77 B | CUDA       |  99 |         tg128 |         58.90 ± 0.31 |
+| llama 70B Q4_K_M               |  39.59 GiB |    70.55 B | CUDA       |  40 |         tg128 |          2.10 ± 0.05 |

@@ -1,0 +1,87 @@
+# The Tombstone Log seed: cloud shutdowns that killed or crippled working hardware.
+# Dates are from memory/common knowledge — VERIFY each before public launch and add
+# 1-2 source URLs per entry. This backfill is the launch asset; accuracy is the brand.
+- slug: revolv-2016
+  product: Revolv Hub
+  vendor: Revolv / Nest (Google)
+  death_date: "2016-05-15"
+  what_died: Entire hub bricked — total shutdown of cloud service
+  owners_left_with: A $300 paperweight; Nest later offered refunds after public outcry
+  summary: The canonical case. Google's Nest division shut down Revolv's servers, fully disabling the hub.
+- slug: insteon-2022
+  product: Insteon hubs & cloud
+  vendor: Insteon / Smartlabs
+  death_date: "2022-04-15"
+  what_died: Cloud service and app vanished overnight, no warning or announcement
+  owners_left_with: Local scenes kept working; app/remote control dead. Community later purchased and revived the service (late 2022)
+  summary: Company went dark without telling customers; devices half-alive. Partial resurrection by user group.
+- slug: iris-2019
+  product: Iris by Lowe's
+  vendor: Lowe's
+  death_date: "2019-03-31"
+  what_died: Entire platform shut down
+  owners_left_with: Refund program for connected devices; first-gen gear mostly landfill
+  summary: Retailer exited smart home; platform sunset with refunds.
+- slug: works-with-nest-2019
+  product: Works with Nest program
+  vendor: Google / Nest
+  death_date: "2019-08-31"
+  what_died: Third-party integration API (deadline later softened after backlash)
+  owners_left_with: Broken automations across thousands of setups
+  summary: Not a brick, but a mass integration kill that stranded ecosystems.
+- slug: wink-2020
+  product: Wink Hub
+  vendor: Wink
+  death_date: "2020-05-13"
+  what_died: Free service — one week's notice that a subscription was now mandatory
+  owners_left_with: Pay monthly for hardware they owned, or lose app/API/voice control
+  summary: The ransom model — hardware held hostage by a dying company's pivot.
+- slug: sonos-legacy-2020
+  product: Sonos legacy speakers
+  vendor: Sonos
+  death_date: "2020-05-01"
+  what_died: Software updates for 'legacy' products; originally whole-system penalty, softened after backlash
+  owners_left_with: Working speakers frozen out of new features and app paths
+  summary: Planned obsolescence by update policy on premium audio gear.
+- slug: smartthings-v1-2021
+  product: SmartThings Hub v1
+  vendor: Samsung
+  death_date: "2021-06-30"
+  what_died: First-gen hub support terminated; local device lists wiped
+  owners_left_with: Buy new hub, re-pair everything
+  summary: Platform migration with hardware casualties.
+- slug: amazon-halo-2023
+  product: Amazon Halo band & services
+  vendor: Amazon
+  death_date: "2023-08-01"
+  what_died: Entire health platform
+  owners_left_with: Refunds for recent purchases; devices dead
+  summary: Big-tech attention span vs. wearables you strapped to your body.
+- slug: myq-api-2023
+  product: Chamberlain MyQ third-party access
+  vendor: Chamberlain Group
+  death_date: "2023-11-01"
+  what_died: Unofficial/local API access deliberately blocked (broke Home Assistant, Homebridge)
+  owners_left_with: Garage openers that only talk to the vendor app (with ads in it)
+  summary: Not death by neglect — death by policy. Openness removed on purpose.
+- slug: spotify-carthing-2024
+  product: Car Thing
+  vendor: Spotify
+  death_date: "2024-12-09"
+  what_died: Device remotely bricked by vendor decision
+  owners_left_with: E-waste; refunds only after legal pressure
+  summary: Vendor shipped a kill command to hardware people paid for.
+- slug: petnet-2020
+  product: Petnet SmartFeeder
+  vendor: Petnet
+  death_date: "2020-06-30"
+  what_died: Company collapsed; feeders stopped feeding pets reliably
+  owners_left_with: Feeders that need the dead cloud to schedule meals
+  summary: Cloud dependency with living things on the other end.
+- slug: jibo-2019
+  product: Jibo social robot
+  vendor: Jibo Inc.
+  death_date: "2019-03-01"
+  what_died: Servers shut after company failure; robot announced its own death to owners
+  owners_left_with: An $899 robot that said goodbye
+  summary: The most poignant entry — hardware that eulogized itself.

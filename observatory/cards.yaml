@@ -1,0 +1,66 @@
+# Card catalog: the cards the Observatory tracks. Add freely; key is canonical.
+# aliases = lowercase substrings used to match listing titles and bench model/gpu strings.
+# exclude = if any of these appear in a title, skip (blocks, waterblocked, boxes-only, etc.)
+- key: rtx3090
+  name: NVIDIA RTX 3090
+  vram_gb: 24
+  tdp_w: 350
+  aliases: ["rtx 3090", "rtx3090", "geforce 3090"]
+  exclude: ["3090 ti"]
+- key: rtx3090ti
+  name: NVIDIA RTX 3090 Ti
+  vram_gb: 24
+  tdp_w: 450
+  aliases: ["3090 ti", "3090ti"]
+- key: rtx3060_12
+  name: NVIDIA RTX 3060 12GB
+  vram_gb: 12
+  tdp_w: 170
+  aliases: ["rtx 3060 12", "3060 12gb"]
+  exclude: ["3060 ti", "laptop", "mobile"]
+- key: rtx4060ti_16
+  name: NVIDIA RTX 4060 Ti 16GB
+  vram_gb: 16
+  tdp_w: 165
+  aliases: ["4060 ti 16", "4060ti 16"]
+- key: rtx4090
+  name: NVIDIA RTX 4090
+  vram_gb: 24
+  tdp_w: 450
+  aliases: ["rtx 4090", "rtx4090"]
+  exclude: ["laptop", "mobile"]
+- key: p40
+  name: NVIDIA Tesla P40
+  vram_gb: 24
+  tdp_w: 250
+  aliases: ["tesla p40", " p40 "]
+- key: p100
+  name: NVIDIA Tesla P100 16GB
+  vram_gb: 16
+  tdp_w: 250
+  aliases: ["tesla p100", " p100 "]
+- key: rtx2080ti
+  name: NVIDIA RTX 2080 Ti
+  vram_gb: 11
+  tdp_w: 250
+  aliases: ["2080 ti", "2080ti"]
+- key: rx7900xtx
+  name: AMD RX 7900 XTX
+  vram_gb: 24
+  tdp_w: 355
+  aliases: ["7900 xtx", "7900xtx"]
+- key: a4000
+  name: NVIDIA RTX A4000
+  vram_gb: 16
+  tdp_w: 140
+  aliases: ["rtx a4000", " a4000"]
+- key: v100_16
+  name: NVIDIA Tesla V100 16GB
+  vram_gb: 16
+  tdp_w: 300
+  aliases: ["tesla v100", " v100 "]
+- key: mi50
+  name: AMD Instinct MI50 16GB
+  vram_gb: 16
+  tdp_w: 300
+  aliases: ["instinct mi50", " mi50 "]

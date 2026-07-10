@@ -1,0 +1,16 @@
+# Device submission format (future GitHub PRs use exactly this file shape).
+# Required: slug, name, vendor, protocol, local_control, sources
+# local_control: full | degraded | none
+slug: shelly-1pm-gen1
+name: Shelly 1PM (Gen1)
+vendor: Shelly (Allterco)
+category: relay/switch
+protocol: wifi
+local_control: full
+local_api: "HTTP REST + MQTT, documented; no cloud account required"
+degrades_how:
+notes: >
+  Fully local out of the box. Cloud is optional and additive. The reference
+  standard other wifi devices should be judged against.
+sources:
+  - https://shelly-api-docs.shelly.cloud/
