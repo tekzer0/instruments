@@ -1,0 +1,18 @@
+# The Instruments — crontab (crontab -e on the Proxmox VM/LXC this lives in)
+# Adjust CD path to wherever you cloned/copied the project.
+CD=cd /opt/instruments
+
+# Sold prices: 1st + 15th = 24 req/mo (12 cards/run), half the free 50 kept as headroom
+15 5 1,15 * *  $CD && python3 run.py prices  >> data/cron.log 2>&1
+
+# Benchmark inbox + rankings + site: nightly (cheap, local)
+30 5 * * *  $CD && python3 run.py bench   >> data/cron.log 2>&1
+45 5 * * *  $CD && python3 run.py join    >> data/cron.log 2>&1
+50 5 * * *  $CD && python3 run.py publish >> data/cron.log 2>&1
+
+# Registry sync + tombstone news watcher: twice daily
+0 6,18 * * * $CD && python3 run.py validate >> data/cron.log 2>&1
+5 6,18 * * * $CD && python3 run.py news     >> data/cron.log 2>&1
+
+# The Monday digest — the one message you actually read
+0 8 * * 1   $CD && python3 run.py digest  >> data/cron.log 2>&1
