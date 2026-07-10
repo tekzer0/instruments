@@ -7,6 +7,12 @@
   tdp_w: 350
   aliases: ["rtx 3090", "rtx3090", "geforce 3090"]
   exclude: ["3090 ti"]
+- key: rtx3080
+  name: NVIDIA RTX 3080 10GB
+  vram_gb: 10
+  tdp_w: 320
+  aliases: ["rtx 3080", "rtx3080", "geforce 3080"]
+  exclude: ["3080 ti", "12gb", "laptop", "mobile"]
 - key: rtx3090ti
   name: NVIDIA RTX 3090 Ti
   vram_gb: 24
