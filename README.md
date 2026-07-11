@@ -9,8 +9,8 @@ Full business plan: see `PLAN.md`.
   plus the Tombstone Log of cloud shutdowns that bricked hardware (12 events pre-seeded).
 
   Live at:
-  Cloud-Death Registry - https://registry.mordo.ai
-  Local-AI Hardware Cost Index - https://observatory.mordo.ai
+  -Cloud-Death Registry: https://registry.mordo.ai
+  -Local-AI Hardware Cost Index: https://observatory.mordo.ai
 
 ## Quickstart
 
