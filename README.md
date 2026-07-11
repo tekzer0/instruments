@@ -4,9 +4,13 @@ Two autonomous data instruments + shared plumbing.
 Full business plan: see `PLAN.md`.
 
 - **Observatory** — Local-AI hardware cost index: joins used-GPU sold prices with
-  community inference benchmarks → tokens/sec-per-dollar rankings.
+  community inference benchmarks → tokens/sec-per-dollar rankings. 
 - **Registry** — Cloud-Death Registry: which smart devices work without the cloud,
   plus the Tombstone Log of cloud shutdowns that bricked hardware (12 events pre-seeded).
+
+  Live at:
+  Cloud-Death Registry - https://registry.mordo.ai
+  Local-AI Hardware Cost Index - https://observatory.mordo.ai
 
 ## Quickstart
 
