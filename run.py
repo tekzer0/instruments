@@ -10,6 +10,9 @@ Jobs:
   news      run tombstone news watcher
   validate  validate registry device YAML files
   digest    send weekly status digest
+  queue     list pending tombstone candidates
+  dismiss N mark candidate N as dismissed (not a real cloud death)
+  confirm N mark candidate N as confirmed (then add it to tombstones.yaml)
   all       prices + bench + join + publish + news
 """
 import sys
@@ -49,6 +52,33 @@ def main() -> int:
     if job == "digest":
         from digest.weekly_digest import run
         return tracked("digest", run)
+    if job == "queue":
+        with db.connect() as conn:
+            rows = conn.execute(
+                "SELECT id, payload, created_at FROM events_queue WHERE status='pending' ORDER BY id"
+            ).fetchall()
+        if not rows:
+            print("queue empty — nothing pending")
+        for r in rows:
+            print(f"[{r['id']}] {r['created_at']}\n    {r['payload'].splitlines()[0]}")
+        return 0
+    if job in ("dismiss", "confirm"):
+        if len(sys.argv) < 3:
+            print(f"usage: python run.py {job} <id>")
+            return 1
+        status = "dismissed" if job == "dismiss" else "confirmed"
+        with db.connect() as conn:
+            cur = conn.execute(
+                "UPDATE events_queue SET status=? WHERE id=? AND status='pending'",
+                (status, sys.argv[2]),
+            )
+        if cur.rowcount:
+            print(f"candidate {sys.argv[2]} -> {status}")
+            if status == "confirmed":
+                print("now add the entry to registry/tombstones.yaml (with sources) and run validate")
+        else:
+            print(f"no pending candidate with id {sys.argv[2]}")
+        return 0
     if job == "all":
         rc = 0
         for j in ("prices", "bench", "join", "publish", "news"):
