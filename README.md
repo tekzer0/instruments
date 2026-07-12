@@ -61,3 +61,5 @@ auto-flagged and excluded from rankings.
 - r/hardwareswap + backup eBay scraper
 - Registry GitHub PR flow + CI validator action
 - API metering layer (Foundry phase)
+
+- [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/G7D22326S8)
