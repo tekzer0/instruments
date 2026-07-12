@@ -47,6 +47,13 @@ def run() -> str:
         n_prices = conn.execute("SELECT COUNT(*) c FROM price_obs").fetchone()["c"]
         n_bench = conn.execute("SELECT COUNT(*) c FROM bench_obs WHERE flagged=0").fetchone()["c"]
 
+    kofi = config.get("KOFI_URL")
+    support_html = (
+        f'<div class="cta">If this instrument saved you money or research time, '
+        f'<a href="{kofi}">you can fuel it here</a> — it runs on one tiny container and stubbornness.</div>'
+        if kofi else ""
+    )
+
     page = f"""<!doctype html>
 <html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
@@ -140,6 +147,7 @@ models — a fast 10GB card can't run what a slow 24GB card can. Datacenter card
   which smart devices survive when the company loses interest.
 </div>
 
+{support_html}
 <footer>Data-driven, sources cited, updated automatically. No ads, no tracking.<br>
 A public instrument. &#128301;</footer>
 </div>

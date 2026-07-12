@@ -55,6 +55,13 @@ def run() -> str:
             f"<td class='sources'>{_sources_links(d['sources'])}</td></tr>"
         )
 
+    kofi = config.get("KOFI_URL")
+    support_html = (
+        f'<div class="cta">If this registry saved you from buying a future brick, '
+        f'<a href="{kofi}">you can fuel it here</a> — it runs on one tiny container and stubbornness.</div>'
+        if kofi else ""
+    )
+
     page = f"""<!doctype html>
 <html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
@@ -118,6 +125,7 @@ a {{ color:var(--accent); }}
   <a href="https://github.com/tekzer0/instruments">Submit it via a pull request</a> — one small YAML file, reviewed in the open.
 </div>
 
+{support_html}
 <footer>Data-driven, sources cited, updated automatically. No ads, no tracking.<br>
 A public instrument. &#9760;</footer>
 </div></body></html>"""
