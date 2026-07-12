@@ -1,5 +1,5 @@
 # The Tombstone Log: cloud shutdowns that killed or crippled working hardware.
-# All dates and facts verified against cited sources 2026-07-10.
+# All dates and facts verified against cited sources.
 - slug: revolv-2016
   product: Revolv Hub
   vendor: Revolv / Nest (Google)
@@ -120,3 +120,33 @@
   sources:
     - https://techcrunch.com/2019/03/04/the-lonely-death-of-jibo-the-social-robot/
     - https://www.engadget.com/2019-03-04-social-robot-jibo-shutting-down-message.html
+- slug: harmony-link-2018
+  product: Logitech Harmony Link
+  vendor: Logitech
+  death_date: "2018-03-16"
+  what_died: Every unit deliberately bricked by firmware update — Logitech chose not to renew an expiring TLS certificate
+  owners_left_with: Initially a 35% discount coupon; free Harmony Hub replacements for everyone only after massive backlash
+  summary: Bricked on purpose over a certificate the vendor simply declined to renew. The apology came only after the outrage. (Suggested by r/homeassistant.)
+  sources:
+    - https://gizmodo.com/logitech-will-be-intentionally-bricking-all-harmony-lin-1820279591
+    - https://www.engadget.com/2017-11-09-logitech-will-brick-harmony-link-in-march.html
+- slug: nest-secure-2024
+  product: Nest Secure
+  vendor: Google / Nest
+  death_date: "2024-04-08"
+  what_died: Entire DIY security system (sold 2017-2020) stopped working — no app control, no alerts, no internet connection
+  owners_left_with: A free ADT Self Setup system or $200 Google Store credit; the hardware itself became scrap
+  summary: Google's second Nest-branded hardware execution after Revolv. A security system people trusted to guard their homes, switched off remotely.
+  sources:
+    - https://www.engadget.com/nest-secure-and-dropcam-products-will-stop-working-in-april-2024-172925431.html
+    - https://www.nerdwallet.com/home-ownership/home-security/learn/nest-secure-discontinued
+- slug: dropcam-2024
+  product: Dropcam / Dropcam Pro
+  vendor: Google / Nest
+  death_date: "2024-04-08"
+  what_died: All Dropcams disconnected the same day as Nest Secure; video history deleted unless downloaded first
+  owners_left_with: Free Nest Cam only if paying for Nest Aware; 50% discount otherwise
+  summary: The pioneering consumer cloud camera, killed by the company that acquired it — compensation gated behind an active subscription.
+  sources:
+    - https://www.engadget.com/nest-secure-and-dropcam-products-will-stop-working-in-april-2024-172925431.html
+    - https://www.xda-developers.com/google-dropcam-nest-secure-support-end-2024/

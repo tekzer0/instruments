@@ -1,42 +1,61 @@
 #!/bin/bash
 # Auto-deploy fresh site builds to Hostinger via FTP after nightly publish.
-# Also self-updates the code from GitHub first, so pushed improvements arrive
-# automatically — no manual git pull needed on the LXC.
+# Self-updates code from GitHub first. Also publishes the static JSON API:
+#   observatory.mordo.ai/data.json  (rankings dataset)
+#   registry.mordo.ai/data.json     (tombstones + devices dataset)
 #
-# One-time setup:
-#   1. Hostinger hPanel -> Files -> FTP Accounts -> create an account.
-#   2. Add to /opt/instruments/.env (gitignored, never committed):
-#        FTP_HOST=ftp://ftp.mordo.ai
-#        FTP_USER=youruser
-#        FTP_PASS='yourpass'                # single-quote if it has special chars
-#        FTP_OBS_PATH=/observatory          # relative to the FTP account root
-#        FTP_REG_PATH=/registry
-#        KOFI_URL=                          # optional: enables support links when set
-#   3. Test:  bash deploy/deploy.sh
-#   4. Cron (after the nightly publish):
-#      55 5 * * * cd /opt/instruments && bash deploy/deploy.sh >> data/cron.log 2>&1
+# .env needs: FTP_HOST, FTP_USER, FTP_PASS (quote specials), FTP_OBS_PATH, FTP_REG_PATH
+# optional: KOFI_URL (enables support links)
+# Cron: 55 5 * * * cd /opt/instruments && bash deploy/deploy.sh >> data/cron.log 2>&1
 
 set -e
 cd "$(dirname "$0")/.."
 
-# self-update code (never fatal — a GitHub hiccup shouldn't stop a deploy)
 git pull -q || echo "git pull failed, deploying with current code"
 
-# pull FTP creds from .env
 set -a; source .env; set +a
 : "${FTP_HOST:?FTP_HOST not set in .env}"
 : "${FTP_USER:?FTP_USER not set in .env}"
 : "${FTP_PASS:?FTP_PASS not set in .env}"
 
-# regenerate both standalone sites from current DB
+# regenerate both sites + JSON API files from current DB
 python3 - <<'PY'
-import sys; sys.path.insert(0, '.')
+import json, sys, yaml
+sys.path.insert(0, '.')
 from common import db; db.init()
 from observatory.publish_observatory import run as obs
 from registry.publish_registry import run as reg
 print(obs()); print(reg())
+
+# --- static JSON API ---
+META = {
+    "license": "CC BY 4.0 - cite the source site",
+    "project": "https://github.com/tekzer0/instruments",
+}
+
+# observatory: rankings dataset
+rankings = json.load(open("site_data/rankings.json", encoding="utf-8"))
+rankings["meta"] = dict(META, source="https://observatory.mordo.ai",
+    description="Used-GPU median sold prices joined with llama.cpp tg128 benchmarks")
+json.dump(rankings, open("site/observatory/data.json", "w", encoding="utf-8"), indent=1)
+
+# registry: tombstones + devices dataset
+with db.connect() as c:
+    tombs = [dict(r) for r in c.execute("SELECT slug,product,vendor,death_date,what_died,owners_left_with,summary,sources FROM tombstones ORDER BY death_date DESC")]
+    devs = [dict(r) for r in c.execute("SELECT slug,name,vendor,category,protocol,local_control,degrades_how,local_api,notes,sources FROM registry_devices ORDER BY vendor,name")]
+for row in tombs + devs:
+    if row.get("sources"):
+        try: row["sources"] = yaml.safe_load(row["sources"])
+        except Exception: pass
+out = {"meta": dict(META, source="https://registry.mordo.ai",
+    description="Cloud-death tombstone log and device cloud-dependency registry"),
+    "tombstones": tombs, "devices": devs}
+json.dump(out, open("site/registry/data.json", "w", encoding="utf-8"), indent=1)
+print(f"data.json: {len(tombs)} tombstones, {len(devs)} devices, {len(rankings.get('cards', []))} cards")
 PY
 
-curl -sS -T site/observatory/index.html "${FTP_HOST}${FTP_OBS_PATH}/index.html" --user "${FTP_USER}:${FTP_PASS}" --ftp-create-dirs
-curl -sS -T site/registry/index.html    "${FTP_HOST}${FTP_REG_PATH}/index.html" --user "${FTP_USER}:${FTP_PASS}" --ftp-create-dirs
+for f in index.html data.json; do
+  curl -sS -T "site/observatory/$f" "${FTP_HOST}${FTP_OBS_PATH}/$f" --user "${FTP_USER}:${FTP_PASS}" --ftp-create-dirs
+  curl -sS -T "site/registry/$f"    "${FTP_HOST}${FTP_REG_PATH}/$f" --user "${FTP_USER}:${FTP_PASS}" --ftp-create-dirs
+done
 echo "deployed $(date -Is)"
