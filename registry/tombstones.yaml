@@ -150,3 +150,14 @@
   sources:
     - https://www.engadget.com/nest-secure-and-dropcam-products-will-stop-working-in-april-2024-172925431.html
     - https://www.xda-developers.com/google-dropcam-nest-secure-support-end-2024/
+- slug: logitech-ue-smartradio-2024
+  product: UE Smart Radio / Squeezebox (MySqueezebox.com services)
+  vendor: Logitech
+  death_date: "2024-02-01"
+  what_died: UESmartRadio.com and MySqueezebox.com cloud servers shut down, killing TIDAL, Pandora, and Deezer integration on the devices after 10+ years of Logitech running them post-sale
+  owners_left_with: Manual migration to a self-hosted Logitech Media Server (now Lyrion Music Server) to retain local playback and some services like TuneIn; Pandora did not survive the migration
+  summary: A rare case where the vendor ran the cloud service a decade past discontinuing the hardware, then killed it citing "evolving security requirements" -- and left a real local-server escape hatch, unlike most entries here.
+  sources:
+    - https://dograt.com/2024/01/the-end-of-mysqueezebox/
+    - https://forums.lyrion.org/forum/user-forums/general-discussion/1676916-help-uesmartradio-com-and-mysqueezebox-com-servers-discontinued
+    - https://github.com/home-assistant/core/issues/121610
